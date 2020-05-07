@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="DeviceDriverSupport-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Gui/LIBS/eie/jars/DeviceDriverSupport-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

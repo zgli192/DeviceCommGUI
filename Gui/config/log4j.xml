@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	
+	
+	
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	
+
+	<!-- LogFile appender is used for direct logging -->
+	<appender name="LogFile"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="Adapter.log" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="ASYNC" class="org.apache.log4j.AsyncAppender">
+		<appender-ref ref="JDBCAppender" />
+	</appender>
+	
+	<!-- Database appender, default it logs to a defined as:
+	
+			CREATE TABLE `log_table` (
+		  `row_id` int(10) unsigned NOT NULL auto_increment,
+		  `timestamp` varchar(23) NOT NULL,
+		  `unique_id` varchar(36) NOT NULL,
+		  `log_level` varchar(5) NOT NULL,
+		  `logging_component` varchar(300) NOT NULL,
+		  `business_context` varchar(300) NOT NULL,
+		  `log_message` text NOT NULL,
+		  `error_code` varchar(300) NOT NULL,
+		  PRIMARY KEY  (`row_id`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+	
+
+	 -->
+	<appender name="JDBCAppender"
+		class="com.ford.vcc.ng.eie.logging.EIEJDBCAppender">	
+
+		<param name="databaseURL" value="jdbc:mysql://localhost:3306/virtual_device" />		
+		<param name="databaseUser" value="virtual_device" />
+		<param name="databasePassword" value="virtual_device" />
+		<param name="driverClass" value="com.mysql.jdbc.Driver" />
+
+		<!--param name="tableName" value="logTable" />
+		<param name="timestampColumnName" value="timeStamp" />		
+		<param name="uniqueIdColumnName" value="uniqueId" />				
+		<param name="logLevelColumnName" value="logLevel" />				
+		<param name="loggingComponentColumnName" value="loggingComponent" />		
+		<param name="businessContextColumnName" value="businessContext" />				
+		<param name="logMessageColumnName" value="logMessage" />				
+		<param name="errorCodeColumnName" value="errorCode" /-->				
+		
+	</appender>
+
+	
+	<!-- Override different logging levels -->
+	<category name="org.apache.log4j.xml">
+		<priority value="info" />
+	</category>
+	<category name="org.springframework">
+		<priority value="warn" />
+	</category>
+	<category name="com.ford.vcc.jang.messaging">
+		<priority value="warn" />
+	</category>
+	<category name="org.activemq">
+		<priority value="error" />
+	</category>
+	<category name="org.apache.commons.httpclient">
+		<priority value="off" />
+	</category>
+	
+	<!-- Activating Debug for the following dirs-->
+	<!--category name="com.ford.vcc.ng.eie.virtualdevice">
+		<priority value="debug" />
+	</category>
+	<category name="com.ford.vcc.cme.equipment.devicedriver.bluetooth">
+		<priority value="debug" />
+	</category>
+	<category name="com.ford.vcc.cme.equipment.devicedriver.FitNesseTestDriver">
+		<priority value="debug" />
+	</category>
+	<category name="com.ford.vcc.cme.equipment.devicedriver.db_consumer">
+		<priority value="debug" />
+	</category>
+	<category name="com.ford.vcc.ng.eie.messaging.integration.jms">
+		<priority value="debug" />
+	</category-->
+
+	<!-- The Root definition -->
+	<root>
+		<priority value="info" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="LogFile" />
+		<!--appender-ref ref="ASYNC" /-->
+	</root>
+
+</log4j:configuration>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Device-Comm-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Gui/LIBS/eie/jars/Device-Comm-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

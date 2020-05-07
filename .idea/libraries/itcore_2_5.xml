@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="itcore-2.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Gui/LIBS/fjf/jars/itcore-2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

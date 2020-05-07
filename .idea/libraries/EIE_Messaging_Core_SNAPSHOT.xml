@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="EIE-Messaging-Core-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Gui/LIBS/eie/jars/EIE-Messaging-Core-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

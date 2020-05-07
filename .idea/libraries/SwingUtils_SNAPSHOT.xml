@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SwingUtils-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Gui/LIBS/eie/jars/SwingUtils-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

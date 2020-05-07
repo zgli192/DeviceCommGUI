@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="EIE-Common-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Gui/LIBS/eie/jars/EIE-Common-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
